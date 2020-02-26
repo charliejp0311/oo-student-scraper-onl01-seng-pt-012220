@@ -26,7 +26,7 @@ class Scraper
     b = nil
     profile_page = open(profile_url)
     profile_scrape = Nokogiri::HTML(profile_page)
-    l = profile_scrape.css('a').select{|a| a.attribute('href').value.match(/linkedin/)}
+    l = profile_scrape.css('a').select{|a| a.attribute('href').value.match(/linkedin/)}.attribute('href').value
     profile = {
       :linkedin => nil,
       :github => nil,
